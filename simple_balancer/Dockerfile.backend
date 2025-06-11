@@ -1,0 +1,11 @@
+FROM golang:1.20-alpine AS builder
+WORKDIR /app
+COPY . .
+RUN go mod download
+RUN go build -o backend ./backend.go
+
+FROM alpine:latest
+WORKDIR /app
+COPY --from=builder /app/backend .
+EXPOSE 8081-8083
+CMD ["./backend", "8081"]

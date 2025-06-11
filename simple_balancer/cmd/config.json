@@ -1,0 +1,9 @@
+{
+  "listen_port": "8080",
+  "health_path": "/health",
+  "backends": [
+    "http://backend1:8081",
+    "http://backend2:8082",
+    "http://backend3:8083"
+  ]
+}
